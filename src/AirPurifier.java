@@ -97,6 +97,15 @@ public class AirPurifier {
 
     public AirPurifier(String brand, String model, double price, String filterType) {
         this(brand, model, price, filterType, 60, 50, "white");
+        System.out.println("You recently purchased a " + this.brand + " " + this.model);
+        totalCount++;
+        totalPrice += price;
+        priceArray.add(price);
+        weightArray.add(weight);
+        brand = brand.toLowerCase().trim();
+        int count = brandMap.containsKey(brand) ? brandMap.get(brand) + 1 : 1;
+        brandMap.put(brand, count);
+
     }
 
     public void turnOn() {
